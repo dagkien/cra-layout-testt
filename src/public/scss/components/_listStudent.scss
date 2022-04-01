@@ -1,0 +1,119 @@
+.list_student-container {
+  .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      text-align: center;
+      .btn-import {
+        border-radius: 2rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+        font-family: var(--main-font);
+        margin: 0 1rem;
+      }
+      .iconSetting {
+        font-size: 1.5rem;
+      }
+      .boxFile {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0rem 1rem;
+        padding-top: 1rem;
+        height: 4rem;
+        z-index: 99;
+        .nameFile {
+          white-space: nowrap;
+          width: 100px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: left;
+        }
+        p:last-child {
+          cursor: pointer;
+        }
+      }
+    }
+    .big-column {
+      z-index: 2;
+      margin-top: -4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 800px;
+      width: 100%;
+      .column-student {
+        background-color: transparent;
+        height: 80%;
+        width: calc((40% - 10px));
+      }
+      .column-lab {
+        background-color: transparent;
+        height: 80%;
+        width: calc((60% - 10px));
+        transition: all 1.2;
+        .header-empty {
+          margin-top: 0.8rem;
+          padding: 1.4rem;
+          background-color: $primary-color;
+          border: 1px solid rgba(0, 0, 0, 0.3);
+          box-shadow: $box-shadow;
+          border-radius: $border-radius;
+          color: $white-color;
+        }
+      }
+    }
+  }
+}
+.list-student-container-mobile {
+  .row-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .title-mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 19px;
+      box-shadow: 0px 0px 3px #333;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      h3 {
+        font-size: 1.4rem;
+        font-family: $font-family;
+      }
+      .btn-import-mobile {
+        margin: 0rem 1rem;
+        width: 90px;
+        border-radius: 0.5rem;
+      }
+    }
+    .column-student-mobile {
+      z-index: 222;
+    }
+    .column-studentCpn {
+      margin: 1rem 0rem;
+      z-index: 222;
+      .stt {
+        font-size: 1rem;
+        padding: 1.5rem 2rem;
+      }
+      .name {
+        font-size: 1.2rem;
+      }
+      .icon-down {
+        padding: 1rem 1.7rem;
+      }
+    }
+  }
+}
+
+.ant-layout-content {
+  padding: 0 !important;
+}

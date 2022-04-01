@@ -1,5 +1,19 @@
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
+$primary-color: #4b49ac;
+$border-radius: 1rem;
+$box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+$white-color: #fff;
+// $font-family: "Red Hat Mono", monospace;
+$font-family: "Montserrat", sans-serif;
+$font-second: "Montserrat", sans-serif;
 
-@import './components/layout';
+@import "./components/layout";
+@import "./components/listStudent";
+@import "./components/columStudentCustom";
+@import "./components/columnLabCpn";
+@import "./components/inputLabCpn";
+@import "./components/columnLabMobileCpn";
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
