@@ -9,11 +9,25 @@ import React, { useState, useEffect } from "react";
 import BtnCustom from "./BtnCustom";
 import CpnLabCustom from "./CpnLabCustom";
 import CpnLabMobileCustom from "./CpnLabMobileCustom";
+import ModalCheckImport from "./modalCheckImport";
 import useWindowDimensions from "./useWindowDimensions";
 
 const ContentAppCPN = () => {
+  
+  // useState
   const { heightScreenClient, widthScreenClient } = useWindowDimensions();
   const [screen, setScreen] = useState("desktop");
+  const [nameFile, setNameFile] = useState("");
+  const [showAsideColumn, setShowAsideColumn] = useState(false);
+  const [toggleModal,setToggleModal] = useState(false)
+  const [state, setState] = useState({
+    size: "large",
+  });
+
+  const { size } = state;
+
+
+  // useEff
 
   useEffect(() => {
     console.log(widthScreenClient);
@@ -24,26 +38,21 @@ const ContentAppCPN = () => {
       setScreen("desktop");
     }
   }, [widthScreenClient]);
-  const [state, setState] = useState({
-    size: "large",
-  });
 
-  const { size } = state;
 
-  const [showAsideColumn, setShowAsideColumn] = useState(false);
-
-  console.log(showAsideColumn);
-
-  const [nameFile, setNameFile] = useState("");
-
+  // handle Fnc
   const handleUpLoad = (e) => {
     let fileUpload = document.getElementById("fileUpload");
     setNameFile(fileUpload.value);
+    setTimeout(() => {
+      setToggleModal(true)
+    },500)
   };
 
   const deleteFile = () => {
     setNameFile("");
   };
+
 
   return (
     <>
@@ -172,13 +181,14 @@ const ContentAppCPN = () => {
                 </Button>
               </div>
             </div>
-            <div class="column-student-mobile">
+            <div className="column-student-mobile">
               <BtnCustom />
               <BtnCustom />
             </div>
-            <div class="column-lab-mobile">
+            <div className="column-lab-mobile">
               <CpnLabMobileCustom />
             </div>
+            {toggleModal && <ModalCheckImport toggleModal={toggleModal} setToggleModal={setToggleModal} nameFile={nameFile} deleteFile={deleteFile} /> }
           </div>
         </div>
       )}

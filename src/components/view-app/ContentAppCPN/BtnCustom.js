@@ -8,10 +8,10 @@ const BtnCustom = (props) => {
 
   return (
     <>
-      <div className={props.showAsideColumn ? "active" : "column-studentCpn"}>
+      <div className={props.showAsideColumn ? "active" : "column-studentCpn"} onClick={handleShowLab}>
         <div className="stt">1</div>
         <div className="name">PS18242 - NGUYEN HOANG THUY MAI</div>
-        <div className="icon-down" onClick={handleShowLab}>
+        <div className="icon-down" >
           <RightOutlined />
         </div>
       </div>
