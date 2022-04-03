@@ -13,19 +13,17 @@ import ModalCheckImport from "./modalCheckImport";
 import useWindowDimensions from "./useWindowDimensions";
 
 const ContentAppCPN = () => {
-  
   // useState
   const { heightScreenClient, widthScreenClient } = useWindowDimensions();
   const [screen, setScreen] = useState("desktop");
   const [nameFile, setNameFile] = useState("");
   const [showAsideColumn, setShowAsideColumn] = useState(false);
-  const [toggleModal,setToggleModal] = useState(false)
+  const [toggleModal, setToggleModal] = useState(false);
   const [state, setState] = useState({
     size: "large",
   });
 
   const { size } = state;
-
 
   // useEff
 
@@ -39,20 +37,18 @@ const ContentAppCPN = () => {
     }
   }, [widthScreenClient]);
 
-
   // handle Fnc
   const handleUpLoad = (e) => {
     let fileUpload = document.getElementById("fileUpload");
     setNameFile(fileUpload.value);
     setTimeout(() => {
-      setToggleModal(true)
-    },500)
+      setToggleModal(true);
+    }, 500);
   };
 
   const deleteFile = () => {
     setNameFile("");
   };
-
 
   return (
     <>
@@ -128,6 +124,7 @@ const ContentAppCPN = () => {
             <div className="big-column">
               <div className="column-student">
                 <BtnCustom
+                  screen={"desktop"}
                   showAsideColumn={showAsideColumn}
                   setShowAsideColumn={setShowAsideColumn}
                 />
@@ -182,13 +179,24 @@ const ContentAppCPN = () => {
               </div>
             </div>
             <div className="column-student-mobile">
-              <BtnCustom />
-              <BtnCustom />
+              <BtnCustom
+                screen={"mobile"}
+                showAsideColumn={showAsideColumn}
+                setShowAsideColumn={setShowAsideColumn}
+              />
             </div>
             <div className="column-lab-mobile">
-              <CpnLabMobileCustom />
+              <CpnLabMobileCustom showAsideColumn={showAsideColumn} />
             </div>
-            {toggleModal && <ModalCheckImport toggleModal={toggleModal} setToggleModal={setToggleModal} nameFile={nameFile} deleteFile={deleteFile} /> }
+            {toggleModal && (
+              <ModalCheckImport
+                toggleModal={toggleModal}
+                setToggleModal={setToggleModal}
+                nameFile={nameFile}
+                deleteFile={deleteFile}
+              />
+            )}
+            dd
           </div>
         </div>
       )}
